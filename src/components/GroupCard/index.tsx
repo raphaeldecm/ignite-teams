@@ -1,7 +1,7 @@
 import { Container, Icon, Title } from './style';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacityProps } from "react-native";
 
-type GroupCardProps = TouchableOpacity & {
+type GroupCardProps = TouchableOpacityProps & {
   title: string;
 };
 
