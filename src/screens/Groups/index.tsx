@@ -16,8 +16,8 @@ export function Groups() {
     <Container>
       <Headers showBackButton />
       <HighLight 
-        title="Grupos"
-        subtitle="Encontre grupos de estudo para se juntar"
+        title="Turmas"
+        subtitle="Encontre turmas de estudo para se juntar"
       />
       <FlatList
         data={groups}
@@ -30,12 +30,12 @@ export function Groups() {
         )}
         contentContainerStyle={ groups.length === 0 && { flex: 1 }}
         ListEmptyComponent={() => (
-          <ListEmpty message="Nenhum grupo encontrado" />
+          <ListEmpty message="Nenhuma turma encontrada" />
         )
         }
       />
       <Button
-        title="Criar grupo"
+        title="Criar Turma"
         onPress={() => {}}
       />
     </Container>

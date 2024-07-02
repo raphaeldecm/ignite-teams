@@ -13,13 +13,13 @@ export function NewGroup() {
         <Icon />
 
         <HighLight
-          title="Crie um grupo"
-          subtitle="Crie um grupo de estudo para compartilhar conhecimento com outras pessoas"
+          title="Nova Turma"
+          subtitle="Crie um grupo para adicionar pessoas."
         />
 
         <Input placeholder="Nome da Turma" />
 
-        <Button title="Criar grupo" onPress={() => {}} />
+        <Button title="Criar Turma" onPress={() => {}} />
 
       </Content>
     </Container>
