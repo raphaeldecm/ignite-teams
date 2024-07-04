@@ -6,15 +6,21 @@ import { HighLight } from '@/src/components/HighLight';
 import { GroupCard } from '@/src/components/GroupCard';
 import { ListEmpty } from '@/src/components/ListEmpty';
 import { Button } from '@/src/components/Button';
+import { useNavigation } from '@react-navigation/native';
 
 export function Groups() {
 
-  const [groups, setGroups] = useState<string[]>([
-  ]);
+  const [groups, setGroups] = useState<string[]>([]);
+  const navigation = useNavigation();
+
+  function handleNewGroup() {
+    // Navigate to the new group screen
+    navigation.navigate('new');
+  }
 
   return (
     <Container>
-      <Headers showBackButton />
+      <Headers />
       <HighLight 
         title="Turmas"
         subtitle="Encontre turmas de estudo para se juntar"
@@ -36,7 +42,7 @@ export function Groups() {
       />
       <Button
         title="Criar Turma"
-        onPress={() => {}}
+        onPress={handleNewGroup}
       />
     </Container>
   );

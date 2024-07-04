@@ -9,7 +9,6 @@ module.exports = function (api) {
           "test": "./test",
           "@assets": "./src/assets",
           "@components": "./src/components",
-          "@routes": "./src/routes",
           "@screens": "./src/screens",
           "@storage": "./src/storage",
           "@utils": "./src/utils",
