@@ -3,12 +3,12 @@ import { TouchableOpacity } from "react-native";
 import { UsersThree } from 'phosphor-react-native';
 
 export const Container = styled(TouchableOpacity)`
-  width: 100%;
+  width: 90%;
   height: 90px;
 
   background-color: ${({ theme }) => theme.COLORS.GRAY_500};
   border-radius: 6px;
-
+  align-self: center;
   flex-direction: row;
   align-items: center;
 
