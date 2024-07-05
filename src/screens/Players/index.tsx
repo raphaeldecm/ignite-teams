@@ -9,20 +9,26 @@ import { useState } from "react";
 import { PlayerCard } from "@/src/components/PlayerCard";
 import { ListEmpty } from "@/src/components/ListEmpty";
 import { Button } from "@/src/components/Button";
+import { useRoute } from "@react-navigation/native";
+
+type RouteParams = {
+  group: string;
+}
 
 export function Players() {
 
   const [team, setTeam] = useState('Time A');
-  const [players, setPlayers] = useState([
-    
-  ]);
+  const [players, setPlayers] = useState([]);
 
+  const route = useRoute();
+  const { group } = route.params as RouteParams
+  
   return (
     <Container>
       <Headers showBackButton />
 
       <HighLight
-        title="Jogadores"
+        title={group}
         subtitle="Encontre jogadores para jogar com você"
       />
       <Form>

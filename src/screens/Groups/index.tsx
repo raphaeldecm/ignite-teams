@@ -14,7 +14,6 @@ export function Groups() {
   const navigation = useNavigation();
 
   function handleNewGroup() {
-    // Navigate to the new group screen
     navigation.navigate('new');
   }
 
