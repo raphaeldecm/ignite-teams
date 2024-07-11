@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { FlatList } from 'react-native';
+import { Alert, FlatList } from 'react-native';
 import { Headers } from '@/src/components/Headers';
 import { Container } from './styles';
 import { HighLight } from '@/src/components/HighLight';
@@ -26,6 +26,9 @@ export function Groups() {
       setIsLoading(false)
     } catch (error) {
       console.log(error);
+      Alert.alert("Turmas", "Não foi possível carregar turmas.")
+    } finally {
+      setIsLoading(false)
     }
   }
 
