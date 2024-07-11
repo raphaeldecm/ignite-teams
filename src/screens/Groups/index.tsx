@@ -8,9 +8,10 @@ import { ListEmpty } from '@/src/components/ListEmpty';
 import { Button } from '@/src/components/Button';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { groupList } from '@/src/storage/group/groupList';
+import { Loading } from '@/src/components/Loading';
 
 export function Groups() {
-
+  const [isLoading, setIsLoading] = useState(true);
   const [groups, setGroups] = useState<string[]>([]);
   const navigation = useNavigation();
 
@@ -20,7 +21,9 @@ export function Groups() {
 
   async function fetchGroups(){
     try {
+      setIsLoading(true)
       setGroups(await groupList())
+      setIsLoading(false)
     } catch (error) {
       console.log(error);
     }
@@ -41,21 +44,27 @@ export function Groups() {
         title="Turmas"
         subtitle="Encontre turmas de estudo para se juntar"
       />
-      <FlatList
-        data={groups}
-        keyExtractor={(item) => item}
-        renderItem={({ item }) => (
-          <GroupCard
-            title={item}
-            onPress={() => handleViewGroup(item)}
+
+      {
+        isLoading ?
+          <Loading /> :
+          <FlatList
+            data={groups}
+            keyExtractor={(item) => item}
+            renderItem={({ item }) => (
+              <GroupCard
+                title={item}
+                onPress={() => handleViewGroup(item)}
+              />
+            )}
+            contentContainerStyle={ groups.length === 0 && { flex: 1 }}
+            ListEmptyComponent={() => (
+              <ListEmpty message="Nenhuma turma encontrada" />
+            )
+            }
           />
-        )}
-        contentContainerStyle={ groups.length === 0 && { flex: 1 }}
-        ListEmptyComponent={() => (
-          <ListEmpty message="Nenhuma turma encontrada" />
-        )
-        }
-      />
+      }
+      
       <Button
         title="Criar Turma"
         onPress={handleNewGroup}
